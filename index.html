@@ -1,0 +1,767 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2487.7">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 13.0px 'Helvetica Neue'}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 13.0px 'Helvetica Neue'; min-height: 15.0px}
+  </style>
+</head>
+<body>
+<p class="p1">&lt;!DOCTYPE html&gt;</p>
+<p class="p1">&lt;html lang="en"&gt;</p>
+<p class="p1">&lt;head&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta charset="UTF-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;title&gt;VEO PROMPT GENERATOR APP BY LESSY SEBASTIAN&lt;/title&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;script src="https://cdn.tailwindcss.com"&gt;&lt;/script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;style&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>body {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-family: 'Inter', sans-serif;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.card {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: white;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 0.75rem;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border: 1px solid #e5e7eb;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 1.5rem;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 1.5rem;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.label {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>display: block;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-weight: 500;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #374151;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 0.5rem;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.input, .select {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>width: 100%;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 0.75rem;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border: 1px solid #d1d5db;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 0.5rem;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: #f9fafb;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #1f2937;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>transition: border-color 0.2s;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.input:focus, .select:focus {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>outline: none;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-color: #3b82f6;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.4);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.btn {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 0.75rem 1.5rem;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 0.5rem;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-weight: 600;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: white;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>cursor: pointer;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>transition: background-color 0.2s;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>text-align: center;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.btn-primary {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: #2563eb;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.btn-primary:hover {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: #1d4ed8;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.btn-secondary {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: #4b5563;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.btn-secondary:hover {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: #374151;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.btn-tertiary {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: #16a34a;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.btn-tertiary:hover {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: #15803d;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.result-box {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: #1f2937;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #f3f4f6;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 1rem;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 0.5rem;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>min-height: 150px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>white-space: pre-wrap;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>word-wrap: break-word;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-family: monospace;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.character-block {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border: 2px solid #e5e7eb;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 0.75rem;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 1rem;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin-top: 1rem;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.dialog-character-block {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border: 1px dashed #9ca3af;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 1rem;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin-top: 1rem;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 0.5rem;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.dialog-entry {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>display: flex;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>align-items: center;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>gap: 0.5rem;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin-top: 0.5rem;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.hidden {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>display: none;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>/* Styles for Modals */</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.modal-overlay {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>position: fixed;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>top: 0;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>left: 0;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>width: 100%;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>height: 100%;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: rgba(0, 0, 0, 0.6);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>backdrop-filter: blur(5px);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>z-index: 999;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>display: flex;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>justify-content: center;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>align-items: center;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.modal-content {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: white;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 2rem;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 0.75rem;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>width: 90%;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>max-width: 400px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>text-align: center;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>box-shadow: 0 10px 25px -5px rgb(0 0 0 / 0.2);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>position: relative;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.close-btn {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>position: absolute;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>top: 10px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>right: 10px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: none;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border: none;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 1.5rem;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #6b7280;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>cursor: pointer;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/style&gt;</p>
+<p class="p1">&lt;/head&gt;</p>
+<p class="p1">&lt;body class="bg-gray-100 p-4 sm:p-6 md:p-8"&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- Access Code Modal --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div id="access-modal-overlay" class="modal-overlay"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="modal-content"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;h2 class="text-xl font-bold text-gray-800 mb-2"&gt;Exclusive Access&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="text-gray-600 mb-4"&gt;This tool is for followers. Please enter the access code to continue.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;input type="password" id="access-code-input" class="input text-center" placeholder="Enter Access Code"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p id="error-message" class="text-red-500 text-sm mt-2 h-5"&gt;&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;button id="submit-access-code" class="btn btn-primary w-full mt-2"&gt;Enter&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- Admin Authentication Modal --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div id="admin-auth-modal-overlay" class="modal-overlay hidden"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="modal-content"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;button id="close-admin-auth-btn" class="close-btn"&gt;&amp;times;&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;h2 class="text-xl font-bold text-gray-800 mb-2"&gt;Admin Verification&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="text-gray-600 mb-4"&gt;Please enter the admin code to access settings.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;input type="password" id="admin-code-input" class="input text-center" placeholder="Enter Admin Code"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p id="admin-error-message" class="text-red-500 text-sm mt-2 h-5"&gt;&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;button id="submit-admin-code" class="btn btn-primary w-full mt-2"&gt;Verify&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;a href="#" id="forgot-codes-link" class="text-xs text-gray-500 hover:underline mt-4 block"&gt;Forgot codes? Emergency Reset&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- Settings Modal --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div id="settings-modal-overlay" class="modal-overlay hidden"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="modal-content"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;button id="close-settings-btn" class="close-btn"&gt;&amp;times;&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;h2 class="text-xl font-bold text-gray-800 mb-4"&gt;Admin Settings&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="space-y-4 text-left"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;label for="new-access-code-input" class="label"&gt;Change User Access Code&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;input type="text" id="new-access-code-input" class="input" placeholder="Enter new user code"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;button id="save-access-code-btn" class="btn btn-primary w-full mt-2 text-sm"&gt;Save User Code&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;hr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;label for="new-admin-code-input" class="label"&gt;Change Admin Code&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;input type="text" id="new-admin-code-input" class="input" placeholder="Enter new admin code"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                     </span>&lt;button id="save-admin-code-btn" class="btn btn-primary w-full mt-2 text-sm"&gt;Save Admin Code&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p id="settings-feedback" class="text-green-600 font-medium mt-4 h-5"&gt;&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div id="main-content" class="max-w-4xl mx-auto hidden"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;header class="text-center mb-8 relative"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;h1 class="text-3xl sm:text-4xl font-bold text-gray-800"&gt;VEO PROMPT GENERATOR VER 2.0&lt;/h1&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="text-lg text-gray-600 mt-2"&gt;BY LESSY SEBASTIAN&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/header&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;main id="prompt-form"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;!-- Subject and Action Details --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="flex justify-between items-center mb-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;h2 class="text-xl font-bold text-gray-700"&gt;1. Characters &amp; Actions&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;button id="add-character-btn-main" class="btn btn-secondary text-sm"&gt;+ Add Character&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div id="character-container"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;!-- Character blocks will be dynamically inserted here --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;!-- Environment and Atmosphere --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;h2 class="text-xl font-bold mb-4 text-gray-700"&gt;2. Environment and Atmosphere&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="grid grid-cols-1 md:grid-cols-2 gap-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;label for="lokasi" class="label"&gt;Location&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;input type="text" id="lokasi" class="input" placeholder="e.g., Planet Mars, enchanted forest, metropolis"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;label for="waktu" class="label"&gt;Time of Day&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;select id="waktu" class="select manual-trigger" data-target="waktu-manual"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;option value=""&gt;Select Time&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;option value="morning (golden hour)"&gt;Morning (Golden Hour)&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;option value="bright midday"&gt;Bright Midday&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;option value="afternoon (magic hour)"&gt;Afternoon (Magic Hour)&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;option value="dusk"&gt;Dusk&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;option value="night"&gt;Night&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;option value="midnight"&gt;Midnight&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;option value="manual"&gt;Other (Manual)&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/select&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;input type="text" id="waktu-manual" class="input mt-2 hidden" placeholder="Enter custom time of day..."&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;label for="cuaca" class="label"&gt;Weather&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;input type="text" id="cuaca" class="input" placeholder="e.g., Sunny, stormy, foggy, snowy"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                     </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;label for="musim" class="label"&gt;Season&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;select id="musim" class="select manual-trigger" data-target="musim-manual"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;option value=""&gt;Select Season&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;option value="spring"&gt;Spring&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;option value="summer"&gt;Summer&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;option value="autumn"&gt;Autumn&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;option value="winter"&gt;Winter&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;option value="manual"&gt;Other (Manual)&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/select&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;input type="text" id="musim-manual" class="input mt-2 hidden" placeholder="Enter custom season..."&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;!-- Cinematography --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;h2 class="text-xl font-bold mb-4 text-gray-700"&gt;3. Cinematography&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="grid grid-cols-1 md:grid-cols-2 gap-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;label for="gaya" class="label"&gt;Visual Style&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;input type="text" id="gaya" class="input" placeholder="e.g., Cinematic style, anime, nature documentary"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;label for="posisiKamera" class="label"&gt;Camera Position&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                         </span>&lt;select id="posisiKamera" class="select manual-trigger" data-target="posisiKamera-manual"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                           </span>&lt;option value=""&gt;Select Position&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                           </span>&lt;option value="from the front"&gt;From the front&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                           </span>&lt;option value="from behind"&gt;From behind&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                           </span>&lt;option value="from the left side"&gt;From the left side&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                           </span>&lt;option value="from the right side"&gt;From the right side&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                           </span>&lt;option value="manual"&gt;Other (Manual)&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/select&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;input type="text" id="posisiKamera-manual" class="input mt-2 hidden" placeholder="Enter custom camera position..."&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;label for="pergerakanKamera" class="label"&gt;Camera Movement&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;select id="pergerakanKamera" class="select manual-trigger" data-target="pergerakanKamera-manual"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                           </span>&lt;option value=""&gt;Select Movement&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                           </span>&lt;option value="dolly shot"&gt;Dolly Shot&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                           </span>&lt;option value="panning shot"&gt;Panning Shot&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                           </span>&lt;option value="crane shot"&gt;Crane Shot&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                           </span>&lt;option value="handheld"&gt;Handheld&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                           </span>&lt;option value="static shot"&gt;Static Shot&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                           </span>&lt;option value="zoom in/out"&gt;Zoom In/Out&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                           </span>&lt;option value="manual"&gt;Other (Manual)&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/select&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;input type="text" id="pergerakanKamera-manual" class="input mt-2 hidden" placeholder="Enter custom camera movement..."&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;label for="sudutKamera" class="label"&gt;Camera Angle&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                         </span>&lt;select id="sudutKamera" class="select manual-trigger" data-target="sudutKamera-manual"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                           </span>&lt;option value=""&gt;Select Angle&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                           </span>&lt;option value="eye-level shot"&gt;Eye-Level Shot&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                           </span>&lt;option value="low-angle shot"&gt;Low-Angle Shot&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                           </span>&lt;option value="high-angle shot"&gt;High-Angle Shot&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                           </span>&lt;option value="bird's-eye view"&gt;Bird's-Eye View&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                           </span>&lt;option value="dutch angle"&gt;Dutch Angle&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                           </span>&lt;option value="manual"&gt;Other (Manual)&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/select&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;input type="text" id="sudutKamera-manual" class="input mt-2 hidden" placeholder="Enter custom camera angle..."&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;label for="panjangFokus" class="label"&gt;Focal Length (Lens)&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                         </span>&lt;select id="panjangFokus" class="select manual-trigger" data-target="panjangFokus-manual"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                           </span>&lt;option value=""&gt;Select Lens&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                           </span>&lt;option value="wide-angle lens"&gt;Wide-Angle Lens&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                           </span>&lt;option value="telephoto lens"&gt;Telephoto Lens&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                           </span>&lt;option value="macro lens"&gt;Macro Lens&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                           </span>&lt;option value="fisheye lens"&gt;Fisheye Lens&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                           </span>&lt;option value="manual"&gt;Other (Manual)&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/select&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;input type="text" id="panjangFokus-manual" class="input mt-2 hidden" placeholder="Enter custom focal length..."&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                     </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;label for="pencahayaan" class="label"&gt;Lighting&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;input type="text" id="pencahayaan" class="input" placeholder="e.g., Dramatic lighting, high-key, low-key, neon"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                     </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;label for="paletWarna" class="label"&gt;Color Palette/Grading&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;input type="text" id="paletWarna" class="input" placeholder="e.g., Vibrant colors, monochromatic, pastel"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;!-- Audio --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;h2 class="text-xl font-bold mb-4 text-gray-700"&gt;4. Audio&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div id="audio-main-section"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                     </span>&lt;label class="label font-semibold"&gt;Dialogue (Auto-synced with characters)&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                     </span>&lt;div id="dialogue-container"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;!-- Dialogue blocks will be auto-inserted here --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                     </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;hr class="my-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;label class="label font-semibold"&gt;Overall Audio Scene&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-2"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                     </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;label for="suasanaSuara" class="label"&gt;Sound Ambiance&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;input type="text" id="suasanaSuara" class="input" placeholder="e.g., Sound of wind, city rumble, birds chirping"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;label for="musikLatar" class="label"&gt;Background Music&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;input type="text" id="musikLatar" class="input" placeholder="e.g., Epic orchestral music, lo-fi hip hop, no music"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;label for="soundEfek" class="label"&gt;Sound Effects&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;input type="text" id="soundEfek" class="input" placeholder="e.g., Explosion sounds, footsteps, magic spells"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;label for="volume" class="label"&gt;Volume&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;input type="text" id="volume" class="input" placeholder="e.g., Soft background music, clear dialogue"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;label for="audioTransisi" class="label"&gt;Audio Transition&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;input type="text" id="audioTransisi" class="input" placeholder="e.g., J-cut, L-cut, fade in/out"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">             </span>&lt;!-- Technical Parameters --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;h2 class="text-xl font-bold mb-4 text-gray-700"&gt;5. Technical Parameters&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="grid grid-cols-1 md:grid-cols-2 gap-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;label for="kualitasVisual" class="label"&gt;Visual Quality&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;select id="kualitasVisual" class="select manual-trigger" data-target="kualitasVisual-manual"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                           </span>&lt;option value="high quality"&gt;High Quality&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                           </span>&lt;option value="4K"&gt;4K&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                           </span>&lt;option value="8K"&gt;8K&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                           </span>&lt;option value="photorealistic"&gt;Photorealistic&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                           </span>&lt;option value="hyperrealistic"&gt;Hyperrealistic&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                           </span>&lt;option value="manual"&gt;Other (Manual)&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/select&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;input type="text" id="kualitasVisual-manual" class="input mt-2 hidden" placeholder="Enter custom visual quality..."&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;label for="aspekRasio" class="label"&gt;Visual Format / Aspect Ratio&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;select id="aspekRasio" class="select manual-trigger" data-target="aspekRasio-manual"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                           </span>&lt;option value="16:9 (widescreen)"&gt;16:9 (Widescreen)&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                           </span>&lt;option value="9:16 (vertical)"&gt;9:16 (Vertical)&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                           </span>&lt;option value="1:1 (square)"&gt;1:1 (Square)&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                           </span>&lt;option value="2.35:1 (cinemascope)"&gt;2.35:1 (Cinemascope)&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                           </span>&lt;option value="manual"&gt;Other (Manual)&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/select&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;input type="text" id="aspekRasio-manual" class="input mt-2 hidden" placeholder="Enter custom aspect ratio..."&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="md:col-span-2"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;label for="detailTambahan" class="label"&gt;Additional Details&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;textarea id="detailTambahan" class="input" rows="3" placeholder="Write any other relevant details here..."&gt;&lt;/textarea&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;!-- Prompt Result --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="mt-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                 </span>&lt;button id="generate-btn" class="btn btn-primary w-full text-lg"&gt;Generate Prompt&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                 </span>&lt;div class="mt-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;h3 class="text-xl font-bold mb-2 text-gray-700"&gt;Generated Prompt:&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div id="result" class="result-box"&gt;Your prompt will appear here...&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="flex gap-2 mt-2"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                      </span>&lt;button id="copy-btn" class="btn btn-secondary w-full"&gt;Copy Prompt&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                      </span>&lt;button id="share-btn" class="btn btn-tertiary w-full"&gt;Share App Link&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div id="copy-feedback" class="text-center text-green-600 font-medium mt-2 h-5"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                 </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/main&gt;</p>
+<p class="p1"><span class="Apple-converted-space">         </span>&lt;footer class="text-center mt-12 mb-6 flex justify-center items-center gap-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="text-gray-500"&gt;App created for the community by Lessy Sebastian. Happy creating!&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;button id="open-settings-btn" title="Admin Settings"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-gray-500 hover:text-gray-800 transition-colors"&gt;&lt;path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 0 2.4l-.15.08a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l-.22-.38a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1 0-2.4l.15.08a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"&gt;&lt;/path&gt;&lt;circle cx="12" cy="12" r="3"&gt;&lt;/circle&gt;&lt;/svg&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/footer&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.addEventListener('DOMContentLoaded', function() {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>// --- Elements ---</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const mainContent = document.getElementById('main-content');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const accessModalOverlay = document.getElementById('access-modal-overlay');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const adminAuthModalOverlay = document.getElementById('admin-auth-modal-overlay');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const settingsModalOverlay = document.getElementById('settings-modal-overlay');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const accessCodeInput = document.getElementById('access-code-input');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const submitAccessCodeBtn = document.getElementById('submit-access-code');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const errorMessage = document.getElementById('error-message');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const adminCodeInput = document.getElementById('admin-code-input');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const submitAdminCodeBtn = document.getElementById('submit-admin-code');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const adminErrorMessage = document.getElementById('admin-error-message');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const closeAdminAuthBtn = document.getElementById('close-admin-auth-btn');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const forgotCodesLink = document.getElementById('forgot-codes-link');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const openSettingsBtn = document.getElementById('open-settings-btn');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const closeSettingsBtn = document.getElementById('close-settings-btn');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const newAccessCodeInput = document.getElementById('new-access-code-input');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const saveAccessCodeBtn = document.getElementById('save-access-code-btn');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const newAdminCodeInput = document.getElementById('new-admin-code-input');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const saveAdminCodeBtn = document.getElementById('save-admin-code-btn');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const settingsFeedback = document.getElementById('settings-feedback');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const characterContainer = document.getElementById('character-container');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const dialogueContainer = document.getElementById('dialogue-container');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const addCharacterBtnMain = document.getElementById('add-character-btn-main');</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>// --- Config ---</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const config = {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>defaultAccessCode: 'VEOBYLESSY',</p>
+<p class="p1"><span class="Apple-converted-space">                </span>defaultAdminCode: 'ADMINMASTER',</p>
+<p class="p1"><span class="Apple-converted-space">                </span>accessCodeKey: 'veoPromptAccessCode',</p>
+<p class="p1"><span class="Apple-converted-space">                </span>adminCodeKey: 'veoPromptAdminCode'</p>
+<p class="p1"><span class="Apple-converted-space">            </span>};</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>// --- State ---</p>
+<p class="p1"><span class="Apple-converted-space">            </span>let characterCount = 0;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>// --- Core Functions ---</p>
+<p class="p1"><span class="Apple-converted-space">            </span>function checkAccessCode() {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>const currentAccessCode = localStorage.getItem(config.accessCodeKey) || config.defaultAccessCode;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>if (accessCodeInput.value.trim() === currentAccessCode) {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>accessModalOverlay.classList.add('hidden');</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>mainContent.classList.remove('hidden');</p>
+<p class="p1"><span class="Apple-converted-space">                </span>} else {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>errorMessage.textContent = 'Incorrect code. Please try again.';</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>accessCodeInput.value = '';</p>
+<p class="p1"><span class="Apple-converted-space">                </span>}</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>function checkAdminCode() {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>const currentAdminCode = localStorage.getItem(config.adminCodeKey) || config.defaultAdminCode;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>if (adminCodeInput.value.trim() === currentAdminCode) {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>adminAuthModalOverlay.classList.add('hidden');</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>settingsModalOverlay.classList.remove('hidden');</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>adminErrorMessage.textContent = '';</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>adminCodeInput.value = '';</p>
+<p class="p1"><span class="Apple-converted-space">                </span>} else {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>adminErrorMessage.textContent = 'Incorrect admin code.';</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>adminCodeInput.value = '';</p>
+<p class="p1"><span class="Apple-converted-space">                </span>}</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>function emergencyReset() {</p>
+<p class="p1"><span class="Apple-converted-space">                 </span>const isConfirmed = confirm("This is an admin-only function. Are you sure you want to reset all codes to their factory defaults? This action cannot be undone.");</p>
+<p class="p1"><span class="Apple-converted-space">                 </span>if (isConfirmed) {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>localStorage.removeItem(config.accessCodeKey);</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>localStorage.removeItem(config.adminCodeKey);</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>alert('Codes have been reset to default. The application will now reload.');</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>location.reload();</p>
+<p class="p1"><span class="Apple-converted-space">                 </span>}</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>function showFeedback(element, message) {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>element.textContent = message;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>setTimeout(() =&gt; { element.textContent = '' }, 3000);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>function saveNewAccessCode() {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>const newCode = newAccessCodeInput.value.trim();</p>
+<p class="p1"><span class="Apple-converted-space">                </span>if (newCode) {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>localStorage.setItem(config.accessCodeKey, newCode);</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>showFeedback(settingsFeedback, 'User access code updated!');</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>newAccessCodeInput.value = '';</p>
+<p class="p1"><span class="Apple-converted-space">                </span>} else {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>showFeedback(settingsFeedback, 'User code cannot be empty.');</p>
+<p class="p1"><span class="Apple-converted-space">                </span>}</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>function saveNewAdminCode() {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>const newCode = newAdminCodeInput.value.trim();</p>
+<p class="p1"><span class="Apple-converted-space">                </span>if (newCode) {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>localStorage.setItem(config.adminCodeKey, newCode);</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>showFeedback(settingsFeedback, 'Admin code updated!');</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>newAdminCodeInput.value = '';</p>
+<p class="p1"><span class="Apple-converted-space">                </span>} else {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>showFeedback(settingsFeedback, 'Admin code cannot be empty.');</p>
+<p class="p1"><span class="Apple-converted-space">                </span>}</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">             </span>function addCharacter() {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>characterCount++;</p>
+<p class="p2"><span class="Apple-converted-space">                </span></p>
+<p class="p1"><span class="Apple-converted-space">                </span>// Create Character Block in Section 1</p>
+<p class="p1"><span class="Apple-converted-space">                </span>const charBlock = document.createElement('div');</p>
+<p class="p1"><span class="Apple-converted-space">                </span>charBlock.className = 'character-block';</p>
+<p class="p1"><span class="Apple-converted-space">                </span>charBlock.id = `character-block-${characterCount}`;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>charBlock.innerHTML = `</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;h3 class="text-lg font-semibold text-gray-800 mb-3"&gt;Character ${characterCount}&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="grid grid-cols-1 md:grid-cols-2 gap-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;label for="subject-${characterCount}" class="label"&gt;Main Subject&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;input type="text" id="subject-${characterCount}" class="input character-subject" placeholder="e.g., A brave knight, a curious cat"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;label for="characteristics-${characterCount}" class="label"&gt;Subject Characteristics&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;input type="text" id="characteristics-${characterCount}" class="input character-characteristics" placeholder="e.g., In shining armor, with fluffy white fur"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;label for="action-${characterCount}" class="label"&gt;Main Action&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;input type="text" id="action-${characterCount}" class="input character-action" placeholder="e.g., Fighting a dragon, chasing a butterfly"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;label for="emotion-${characterCount}" class="label"&gt;Emotion&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;input type="text" id="emotion-${characterCount}" class="input character-emotion" placeholder="e.g., Determined, playful, scared"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>`;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>characterContainer.appendChild(charBlock);</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>// Create corresponding Dialogue Block in Section 4</p>
+<p class="p1"><span class="Apple-converted-space">                </span>const dialogueBlock = document.createElement('div');</p>
+<p class="p1"><span class="Apple-converted-space">                </span>dialogueBlock.className = 'dialog-character-block';</p>
+<p class="p1"><span class="Apple-converted-space">                </span>dialogueBlock.id = `dialog-block-${characterCount}`;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>dialogueBlock.innerHTML = `</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="grid grid-cols-1 sm:grid-cols-2 gap-2"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;label class="label text-sm"&gt;Language &amp; Accent (Character ${characterCount})&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;input type="text" id="lang-${characterCount}" class="input dialogue-lang" placeholder="e.g., English, British accent"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;label class="label text-sm"&gt;Dialogue (Character ${characterCount})&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;input type="text" id="dialogue-${characterCount}" class="input dialogue-text" placeholder="Dialogue content..."&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>`;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>dialogueContainer.appendChild(dialogueBlock);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>// --- Event Listeners ---</p>
+<p class="p1"><span class="Apple-converted-space">            </span>submitAccessCodeBtn.addEventListener('click', checkAccessCode);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>accessCodeInput.addEventListener('keypress', e =&gt; e.key === 'Enter' &amp;&amp; checkAccessCode());</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>openSettingsBtn.addEventListener('click', () =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>adminAuthModalOverlay.classList.remove('hidden');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>});</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>closeAdminAuthBtn.addEventListener('click', () =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">                 </span>adminAuthModalOverlay.classList.add('hidden');</p>
+<p class="p1"><span class="Apple-converted-space">                 </span>adminErrorMessage.textContent = '';</p>
+<p class="p1"><span class="Apple-converted-space">                 </span>adminCodeInput.value = '';</p>
+<p class="p1"><span class="Apple-converted-space">            </span>});</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>submitAdminCodeBtn.addEventListener('click', checkAdminCode);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>adminCodeInput.addEventListener('keypress', e =&gt; e.key === 'Enter' &amp;&amp; checkAdminCode());</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>forgotCodesLink.addEventListener('click', function(e) {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>e.preventDefault();</p>
+<p class="p1"><span class="Apple-converted-space">                </span>emergencyReset();</p>
+<p class="p1"><span class="Apple-converted-space">            </span>});</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>closeSettingsBtn.addEventListener('click', () =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>settingsModalOverlay.classList.add('hidden');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>});</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>saveAccessCodeBtn.addEventListener('click', saveNewAccessCode);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>saveAdminCodeBtn.addEventListener('click', saveNewAdminCode);</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>addCharacterBtnMain.addEventListener('click', addCharacter);</p>
+<p class="p2"><br></p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>// --- Main App Logic ---</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const generateBtn = document.getElementById('generate-btn');</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.querySelectorAll('.manual-trigger').forEach(selectElement =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>selectElement.addEventListener('change', function() {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>const targetId = this.dataset.target;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>const targetInput = document.getElementById(targetId);</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>if (this.value === 'manual') {</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>targetInput.classList.remove('hidden');</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>} else {</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>targetInput.classList.add('hidden');</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>targetInput.value = '';</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">                </span>});</p>
+<p class="p1"><span class="Apple-converted-space">            </span>});</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>function getFieldValue(selectId, manualInputId) {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>const select = document.getElementById(selectId);</p>
+<p class="p1"><span class="Apple-converted-space">                </span>if (select.value === 'manual') {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>return document.getElementById(manualInputId).value.trim();</p>
+<p class="p1"><span class="Apple-converted-space">                </span>}</p>
+<p class="p1"><span class="Apple-converted-space">                </span>return select.value;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>generateBtn.addEventListener('click', function() {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>let prompt = 'Create a video with the following details:\n\n';</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>// 1. Characters</p>
+<p class="p1"><span class="Apple-converted-space">                </span>prompt += `**Characters &amp; Actions:**\n`;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>for (let i = 1; i &lt;= characterCount; i++) {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>const subject = document.getElementById(`subject-${i}`).value.trim();</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>const characteristics = document.getElementById(`characteristics-${i}`).value.trim();</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>const action = document.getElementById(`action-${i}`).value.trim();</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>const emotion = document.getElementById(`emotion-${i}`).value.trim();</p>
+<p class="p2"><span class="Apple-converted-space">                    </span></p>
+<p class="p1"><span class="Apple-converted-space">                    </span>if (subject) {</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>let charDesc = `- **Character ${i}:** ${subject}`;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>if (characteristics) charDesc += ` ${characteristics}`;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>if (action) charDesc += `, who is ${action}`;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>if (emotion) charDesc += ` while feeling ${emotion}`;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>prompt += `${charDesc}.\n`;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">                </span>}</p>
+<p class="p2"><span class="Apple-converted-space">                </span></p>
+<p class="p1"><span class="Apple-converted-space">                </span>// 2. Environment</p>
+<p class="p1"><span class="Apple-converted-space">                </span>const fieldsEnv = {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>location: document.getElementById('lokasi').value.trim(),</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>time: getFieldValue('waktu', 'waktu-manual'),</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>weather: document.getElementById('cuaca').value.trim(),</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>season: getFieldValue('musim', 'musim-manual'),</p>
+<p class="p1"><span class="Apple-converted-space">                </span>};</p>
+<p class="p1"><span class="Apple-converted-space">                </span>let envPart = '';</p>
+<p class="p1"><span class="Apple-converted-space">                </span>if (fieldsEnv.location) envPart += `Located in ${fieldsEnv.location}`;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>if (fieldsEnv.time) envPart += `, at ${fieldsEnv.time}`;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>if (fieldsEnv.weather) envPart += ` with ${fieldsEnv.weather} weather`;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>if (fieldsEnv.season) envPart += ` during ${fieldsEnv.season}`;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>if (envPart) prompt += `\n**Environment:** ${envPart}.\n`;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>// 3. Cinematography</p>
+<p class="p1"><span class="Apple-converted-space">                </span>const fieldsCinema = {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>style: document.getElementById('gaya').value.trim(),</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>position: getFieldValue('posisiKamera', 'posisiKamera-manual'),</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>movement: getFieldValue('pergerakanKamera', 'pergerakanKamera-manual'),</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>angle: getFieldValue('sudutKamera', 'sudutKamera-manual'),</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>focus: getFieldValue('panjangFokus', 'panjangFokus-manual'),</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>lighting: document.getElementById('pencahayaan').value.trim(),</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>color: document.getElementById('paletWarna').value.trim(),</p>
+<p class="p1"><span class="Apple-converted-space">                </span>};</p>
+<p class="p1"><span class="Apple-converted-space">                </span>let cinemaPart = '';</p>
+<p class="p1"><span class="Apple-converted-space">                </span>if (fieldsCinema.style) cinemaPart += `Use a ${fieldsCinema.style} visual style`;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>else { cinemaPart += 'Use a cinematic style' }</p>
+<p class="p1"><span class="Apple-converted-space">                </span>if (fieldsCinema.position) cinemaPart += `, filmed ${fieldsCinema.position}`;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>if (fieldsCinema.movement) cinemaPart += `, with ${fieldsCinema.movement} camera movement`;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>if (fieldsCinema.angle) cinemaPart += `, a ${fieldsCinema.angle}`;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>if (fieldsCinema.focus) cinemaPart += `, and a ${fieldsCinema.focus}`;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>if (cinemaPart) prompt += `\n**Cinematography:** ${cinemaPart}.\n`;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>if (fieldsCinema.lighting) prompt += `**Lighting:** ${fieldsCinema.lighting}.\n`;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>if (fieldsCinema.color) prompt += `**Color Palette:** ${fieldsCinema.color}.\n`;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>// 4. Audio</p>
+<p class="p1"><span class="Apple-converted-space">                </span>let audioPart = '';</p>
+<p class="p1"><span class="Apple-converted-space">                </span>let dialogueContent = '';</p>
+<p class="p1"><span class="Apple-converted-space">                </span>for (let i = 1; i &lt;= characterCount; i++) {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>const lang = document.getElementById(`lang-${i}`).value.trim();</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>const dialogue = document.getElementById(`dialogue-${i}`).value.trim();</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>if (dialogue) {</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>dialogueContent += `- Character ${i}`;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>if (lang) dialogueContent += ` (${lang})`;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>dialogueContent += `: "${dialogue}"\n`;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">                </span>}</p>
+<p class="p1"><span class="Apple-converted-space">                </span>if (dialogueContent) {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>audioPart += `**Dialogue:**\n${dialogueContent}`;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>const fieldsAudio = {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>ambiance: document.getElementById('suasanaSuara').value.trim(),</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>music: document.getElementById('musikLatar').value.trim(),</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>sfx: document.getElementById('soundEfek').value.trim(),</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>volume: document.getElementById('volume').value.trim(),</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>audioTransition: document.getElementById('audioTransisi').value.trim(),</p>
+<p class="p1"><span class="Apple-converted-space">                </span>};</p>
+<p class="p1"><span class="Apple-converted-space">                </span>let sceneAudio = '';</p>
+<p class="p1"><span class="Apple-converted-space">                </span>if (fieldsAudio.ambiance) sceneAudio += `**Sound Ambiance:** ${fieldsAudio.ambiance}.\n`;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>if (fieldsAudio.music) sceneAudio += `**Background Music:** ${fieldsAudio.music}.\n`;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>if (fieldsAudio.sfx) sceneAudio += `**Sound Effects:** ${fieldsAudio.sfx}.\n`;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>if (fieldsAudio.volume) sceneAudio += `**Volume:** ${fieldsAudio.volume}.\n`;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>if (fieldsAudio.audioTransition) sceneAudio += `**Audio Transition:** ${fieldsAudio.audioTransition}.\n`;</p>
+<p class="p2"><span class="Apple-converted-space">                </span></p>
+<p class="p1"><span class="Apple-converted-space">                </span>if (audioPart &amp;&amp; sceneAudio) {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>prompt += `\n**Audio:**\n${audioPart}${sceneAudio}`;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>} else if (audioPart) {</p>
+<p class="p1"><span class="Apple-converted-space">                     </span>prompt += `\n**Audio:**\n${audioPart}`;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>} else if (sceneAudio) {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>prompt += `\n**Audio:**\n${sceneAudio}`;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>}</p>
+<p class="p2"><br></p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>// 5. Technical</p>
+<p class="p1"><span class="Apple-converted-space">                </span>const fieldsTech = {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>quality: getFieldValue('kualitasVisual', 'kualitasVisual-manual'),</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>ratio: getFieldValue('aspekRasio', 'aspekRasio-manual'),</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>additional: document.getElementById('detailTambahan').value.trim(),</p>
+<p class="p1"><span class="Apple-converted-space">                </span>};</p>
+<p class="p1"><span class="Apple-converted-space">                </span>let techPart = `In ${fieldsTech.ratio} format with ${fieldsTech.quality}`;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>prompt += `\n**Technical Parameters:** ${techPart}.\n`;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>if (fieldsTech.additional) {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>prompt += `\n**Additional Details:** ${fieldsTech.additional}.\n`;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>}</p>
+<p class="p2"><span class="Apple-converted-space">                </span></p>
+<p class="p1"><span class="Apple-converted-space">                </span>document.getElementById('result').textContent = prompt.replace(/\n\n\n/g, '\n\n').trim();</p>
+<p class="p1"><span class="Apple-converted-space">            </span>});</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>function copyToClipboard(text, successMessage, failureMessage) {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>const textArea = document.createElement('textarea');</p>
+<p class="p1"><span class="Apple-converted-space">                </span>textArea.value = text;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>textArea.style.position = 'fixed';</p>
+<p class="p1"><span class="Apple-converted-space">                </span>textArea.style.top = '-9999px';</p>
+<p class="p1"><span class="Apple-converted-space">                </span>textArea.style.left = '-9999px';</p>
+<p class="p1"><span class="Apple-converted-space">                </span>document.body.appendChild(textArea);</p>
+<p class="p1"><span class="Apple-converted-space">                </span>textArea.focus();</p>
+<p class="p1"><span class="Apple-converted-space">                </span>textArea.select();</p>
+<p class="p1"><span class="Apple-converted-space">                </span>try {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>const successful = document.execCommand('copy');</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>document.getElementById('copy-feedback').textContent = successful ? successMessage : failureMessage;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>} catch (err) {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>document.getElementById('copy-feedback').textContent = failureMessage;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>}</p>
+<p class="p1"><span class="Apple-converted-space">                </span>document.body.removeChild(textArea);</p>
+<p class="p1"><span class="Apple-converted-space">                </span>setTimeout(() =&gt; { document.getElementById('copy-feedback').textContent = '' }, 3000);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById('copy-btn').addEventListener('click', function() {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>const textToCopy = document.getElementById('result').textContent;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>if (textToCopy === 'Your prompt will appear here...') return;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>copyToClipboard(textToCopy, 'Prompt copied successfully!', 'Failed to copy prompt.');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>});</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById('share-btn').addEventListener('click', function() {</p>
+<p class="p1"><span class="Apple-converted-space">                 </span>const url = window.location.href;</p>
+<p class="p1"><span class="Apple-converted-space">                 </span>copyToClipboard(url, 'App link copied! Share it with your friends.', 'Failed to copy link.');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>});</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>// Initialize with one character</p>
+<p class="p1"><span class="Apple-converted-space">            </span>addCharacter();</p>
+<p class="p1"><span class="Apple-converted-space">        </span>});</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/script&gt;</p>
+<p class="p1">&lt;/body&gt;</p>
+<p class="p1">&lt;/html&gt;</p>
+</body>
+</html>
