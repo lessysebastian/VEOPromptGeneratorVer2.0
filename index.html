@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VEO PROMPT GENERATOR APP BY LESSY SEBASTIAN</title>
+    <title>VEO3 PROMPT GENERATOR APP BY LESSY SEBASTIAN</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
@@ -65,6 +65,12 @@
         .btn-tertiary:hover {
             background-color: #15803d;
         }
+        .btn-danger {
+            background-color: #dc2626;
+        }
+        .btn-danger:hover {
+            background-color: #b91c1c;
+        }
         .result-box {
             background-color: #1f2937;
             color: #f3f4f6;
@@ -80,18 +86,30 @@
             border-radius: 0.75rem;
             padding: 1rem;
             margin-top: 1rem;
+            position: relative;
+        }
+        .remove-character-btn {
+            position: absolute;
+            top: 0.5rem;
+            right: 0.5rem;
+            background-color: #ef4444;
+            color: white;
+            border: none;
+            width: 1.5rem;
+            height: 1.5rem;
+            border-radius: 9999px;
+            font-weight: bold;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            line-height: 1;
         }
         .dialog-character-block {
             border: 1px dashed #9ca3af;
             padding: 1rem;
             margin-top: 1rem;
             border-radius: 0.5rem;
-        }
-        .dialog-entry {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            margin-top: 0.5rem;
         }
         .hidden {
             display: none;
@@ -182,7 +200,7 @@
 
     <div id="main-content" class="max-w-4xl mx-auto hidden">
         <header class="text-center mb-8 relative">
-            <h1 class="text-3xl sm:text-4xl font-bold text-gray-800">VEO PROMPT GENERATOR VER 2.0</h1>
+            <h1 class="text-3xl sm:text-4xl font-bold text-gray-800">VEO PROMPT GENERATOR</h1>
             <p class="text-lg text-gray-600 mt-2">BY LESSY SEBASTIAN</p>
         </header>
 
@@ -384,8 +402,9 @@
                  <div class="mt-6">
                     <h3 class="text-xl font-bold mb-2 text-gray-700">Generated Prompt:</h3>
                     <div id="result" class="result-box">Your prompt will appear here...</div>
-                    <div class="flex gap-2 mt-2">
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 mt-2">
                       <button id="copy-btn" class="btn btn-secondary w-full">Copy Prompt</button>
+                      <button id="reset-btn" class="btn btn-danger w-full">Clear All Fields</button>
                       <button id="share-btn" class="btn btn-tertiary w-full">Share App Link</button>
                     </div>
                     <div id="copy-feedback" class="text-center text-green-600 font-medium mt-2 h-5"></div>
@@ -425,6 +444,7 @@
             const characterContainer = document.getElementById('character-container');
             const dialogueContainer = document.getElementById('dialogue-container');
             const addCharacterBtnMain = document.getElementById('add-character-btn-main');
+            const resetBtn = document.getElementById('reset-btn');
 
             // --- Config ---
             const config = {
@@ -499,14 +519,26 @@
                 }
             }
 
-             function addCharacter() {
+            function removeCharacter(id) {
+                const charBlock = document.getElementById(`character-block-${id}`);
+                const dialogueBlock = document.getElementById(`dialog-block-${id}`);
+                if (charBlock) charBlock.remove();
+                if (dialogueBlock) dialogueBlock.remove();
+            }
+
+            function addCharacter() {
                 characterCount++;
                 
-                // Create Character Block in Section 1
                 const charBlock = document.createElement('div');
                 charBlock.className = 'character-block';
                 charBlock.id = `character-block-${characterCount}`;
+                
+                const dialogueBlock = document.createElement('div');
+                dialogueBlock.className = 'dialog-character-block';
+                dialogueBlock.id = `dialog-block-${characterCount}`;
+
                 charBlock.innerHTML = `
+                    <button class="remove-character-btn" data-id="${characterCount}">&times;</button>
                     <h3 class="text-lg font-semibold text-gray-800 mb-3">Character ${characterCount}</h3>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div>
@@ -527,12 +559,7 @@
                         </div>
                     </div>
                 `;
-                characterContainer.appendChild(charBlock);
-
-                // Create corresponding Dialogue Block in Section 4
-                const dialogueBlock = document.createElement('div');
-                dialogueBlock.className = 'dialog-character-block';
-                dialogueBlock.id = `dialog-block-${characterCount}`;
+                
                 dialogueBlock.innerHTML = `
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
                         <div>
@@ -545,7 +572,41 @@
                         </div>
                     </div>
                 `;
+
+                characterContainer.appendChild(charBlock);
                 dialogueContainer.appendChild(dialogueBlock);
+
+                charBlock.querySelector('.remove-character-btn').addEventListener('click', function() {
+                    removeCharacter(this.dataset.id);
+                });
+            }
+            
+            function resetAllFields() {
+                // Reset all standard text inputs and textareas
+                document.querySelectorAll('#prompt-form input[type="text"], #prompt-form textarea').forEach(input => input.value = '');
+
+                // Reset all select dropdowns to the first option
+                document.querySelectorAll('#prompt-form select').forEach(select => {
+                    select.selectedIndex = 0;
+                    // Also hide any associated manual input fields
+                    const manualInput = document.getElementById(select.dataset.target);
+                    if (manualInput) {
+                        manualInput.classList.add('hidden');
+                        manualInput.value = '';
+                    }
+                });
+
+                // Clear dynamic character and dialogue sections
+                characterContainer.innerHTML = '';
+                dialogueContainer.innerHTML = '';
+                characterCount = 0;
+
+                // Add back one initial character
+                addCharacter();
+
+                // Clear the result box
+                document.getElementById('result').textContent = 'Your prompt will appear here...';
+                document.getElementById('copy-feedback').textContent = '';
             }
 
             // --- Event Listeners ---
@@ -578,6 +639,8 @@
             saveAdminCodeBtn.addEventListener('click', saveNewAdminCode);
             
             addCharacterBtnMain.addEventListener('click', addCharacter);
+            
+            resetBtn.addEventListener('click', resetAllFields);
 
 
             // --- Main App Logic ---
@@ -608,20 +671,24 @@
                 let prompt = 'Create a video with the following details:\n\n';
 
                 // 1. Characters
-                prompt += `**Characters & Actions:**\n`;
-                for (let i = 1; i <= characterCount; i++) {
-                    const subject = document.getElementById(`subject-${i}`).value.trim();
-                    const characteristics = document.getElementById(`characteristics-${i}`).value.trim();
-                    const action = document.getElementById(`action-${i}`).value.trim();
-                    const emotion = document.getElementById(`emotion-${i}`).value.trim();
-                    
-                    if (subject) {
-                        let charDesc = `- **Character ${i}:** ${subject}`;
-                        if (characteristics) charDesc += ` ${characteristics}`;
-                        if (action) charDesc += `, who is ${action}`;
-                        if (emotion) charDesc += ` while feeling ${emotion}`;
-                        prompt += `${charDesc}.\n`;
-                    }
+                const characterBlocks = document.querySelectorAll('.character-block');
+                if (characterBlocks.length > 0) {
+                    prompt += `**Characters & Actions:**\n`;
+                    characterBlocks.forEach((block, index) => {
+                        const id = block.id.split('-')[2];
+                        const subject = document.getElementById(`subject-${id}`).value.trim();
+                        const characteristics = document.getElementById(`characteristics-${id}`).value.trim();
+                        const action = document.getElementById(`action-${id}`).value.trim();
+                        const emotion = document.getElementById(`emotion-${id}`).value.trim();
+                        
+                        if (subject) {
+                            let charDesc = `- **Character ${index + 1}:** ${subject}`;
+                            if (characteristics) charDesc += ` ${characteristics}`;
+                            if (action) charDesc += `, who is ${action}`;
+                            if (emotion) charDesc += ` while feeling ${emotion}`;
+                            prompt += `${charDesc}.\n`;
+                        }
+                    });
                 }
                 
                 // 2. Environment
@@ -662,15 +729,18 @@
                 // 4. Audio
                 let audioPart = '';
                 let dialogueContent = '';
-                for (let i = 1; i <= characterCount; i++) {
-                    const lang = document.getElementById(`lang-${i}`).value.trim();
-                    const dialogue = document.getElementById(`dialogue-${i}`).value.trim();
+                const dialogueBlocks = document.querySelectorAll('.dialog-character-block');
+                dialogueBlocks.forEach((block, index) => {
+                    const id = block.id.split('-')[2];
+                    const lang = document.getElementById(`lang-${id}`).value.trim();
+                    const dialogue = document.getElementById(`dialogue-${id}`).value.trim();
                     if (dialogue) {
-                        dialogueContent += `- Character ${i}`;
+                        dialogueContent += `- Character ${index + 1}`;
                         if (lang) dialogueContent += ` (${lang})`;
                         dialogueContent += `: "${dialogue}"\n`;
                     }
-                }
+                });
+
                 if (dialogueContent) {
                     audioPart += `**Dialogue:**\n${dialogueContent}`;
                 }
@@ -749,3 +819,4 @@
     </script>
 </body>
 </html>
+
